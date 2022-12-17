@@ -1,0 +1,65 @@
+.input-form {
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.input-form input,
+.input-form textarea,
+.input-form button,
+.input-form select {
+  outline: none;
+  border: 1px solid #dbdbdbb5;
+  border-radius: 5px;
+  padding: 10px;
+  background: #fff;
+  width: 100%;
+}
+
+.input-form button {
+  margin-top: 15px;
+}
+
+.input-form .input-div {
+  margin: 0 0 15px 0;
+}
+
+.input-form input:hover,
+.input-form textarea:hover,
+.input-form input:focus,
+.input-form textarea:focus {
+  border: 1px solid rgb(156, 166, 209);
+  box-shadow: 0px 0 2px 0px #001fff59;
+}
+
+.input-form button:hover,
+.input-form select:hover,
+.input-form button:focus,
+.input-form select:focus {
+  border: 1px solid rgb(156, 166, 209);
+  box-shadow: 0px 0 2px 0px #001fff59;
+  cursor: pointer;
+}
+
+.input-form .title {
+  margin: 5px 0;
+}
+
+.input-form .error {
+  margin: 2px 0;
+  color: red;
+}
+
+.requires-span {
+  color: red;
+}
+
+.input-form input[type='radio'],
+.input-form input[type='checkbox'] {
+  width: unset;
+  margin: 5px;
+}
