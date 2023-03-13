@@ -1,70 +1,173 @@
-# Getting Started with Create React App
+# NPM DYNAMIC FULLY CUSTOMISED FORM FOR COMMON USE
+___________________
+_______________
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Use this form for create common form for your website.
+________________
+________________
 
-## Available Scripts
+# Features :-
+_______________________________
 
-In the project directory, you can run:
+ - create Form For common Use.
+ - show Custom Html in form
+ - customize errors and show Erros or messages.
+- customize full form .
+- show custom html in form. 
+- manage local state data in only one state.
+- reduce & optmize your code
+ 
+________________
+________________
 
-### `npm start`
+# Example 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+import { useState } from 'react';
+import InputForm from './project';
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+function App() {
+  const [dataObject, setDataObject] = useState({});
 
-### `npm test`
+  const customFieldsData = () => {
+    return (
+      <>
+        <input
+          onChange={(e) => {
+            dataObject.custom = e.target.value;
+            setDataObject({ ...dataObject });
+          }}
+          type="radio"
+          name="fav_language"
+          value="HTML"
+        />
+        <label for="html">HTML</label>
+        <br />
+        <input
+          onChange={(e) => {
+            dataObject.custom = e.target.value;
+            setDataObject({ ...dataObject });
+          }}
+          type="radio"
+          name="fav_language"
+          value="CSS"
+        />
+        <label for="css">CSS</label>
+        <br />
+        <input
+          onChange={(e) => {
+            dataObject.custom = e.target.value;
+            setDataObject({ ...dataObject });
+          }}
+          type="radio"
+          name="fav_language"
+          value="JavaScript"
+        />
+        <label for="javascript">JavaScript</label>
+      </>
+    );
+  };
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  const fieldsData = [
+    {
+      type: 'text',
+      label: 'text',
+      onChange: (e) => {
+        dataObject.title = e.target.value;
+        setDataObject({ ...dataObject });
+      },
+      value: dataObject.title,
+      inputtype: 'input',
+      error: 'Error msg',
+      placeholder: 'input',
+      required: true,
+      hideDefaultErr: true,
+    },
+    {
+      label: 'textarea',
+      error: 'Error msg',
+      onChange: (e) => {
+        dataObject.discription = e.target.value;
+        setDataObject({ ...dataObject });
+      },
+      value: dataObject.discription,
+      inputtype: 'textarea',
+      rows: 5,
+      placeholder: 'textarea',
+    },
+    {
+      label: 'dropdown',
+      onChange: (e) => {
+        dataObject.select = e.target.value;
+        setDataObject({ ...dataObject });
+      },
+      value: dataObject.select,
+      inputtype: 'dropdown',
+      placeholder: 'dropDown',
+      required: true,
+      data: [
+        {
+          id: 1,
+          title: 'test',
+        },
+        {
+          id: 2,
+          title: 'test2',
+        },
+      ],
+      showkey: 'title',
+      setkey: 'id',
+    },
 
-### `npm run build`
+    { customHtml: customFieldsData },
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    {
+      value: 'button',
+      title: 'button',
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+      onClick: () => {
+        console.log(dataObject);
+      },
+      inputtype: 'button',
+    },
+  ];
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  return (
+    <div>
+      <InputForm fieldsData={fieldsData} />
+    </div>
+  );
+}
 
-### `npm run eject`
+export default App;
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+________________
+________________
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Props 
+__________
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+|Title|Default|Require|Accept|Options|
+|-|-|-|-|-|
+|fieldsData|null|Reuqired|Object|
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+_________________
+___________________
 
-### Analyzing the Bundle Size
+## Json Props 
+__________
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### in json you can provide any prop and use it.
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+|Title|Default|Require|Accept|Options|
+|-|-|-|-|-|
+|customHtml||no|function|
+|inputtype| input |No|string| button, textarea, dropdown |
+|label|  |No|string||
+|error|  |No|string||
